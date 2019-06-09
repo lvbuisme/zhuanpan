@@ -12,24 +12,24 @@ Page({
     indexSelect: 0,//被选中的奖品index
     isRunning: false,//是否正在抽奖
     imageAward: [
-      '../../images/1.jpg',
-      '../../images/2.jpg',
-      '../../images/3.jpg',
-      '../../images/4.jpg',
-      '../../images/5.jpg',
-      '../../images/6.jpg',
-      '../../images/7.jpg',
-      '../../images/8.jpg',
+      '../../images/红烧茄子.jpg',
+      '../../images/红烧肉.jpg',
+      '../../images/黄焖鸡.jpg',
+      '../../images/兰州拉面.jpg',
+      '../../images/麻婆豆腐.jpg',
+      '../../images/奶香馒头.jpg',
+      '../../images/外卖.jpg',
+      '../../images/西安凉皮.jpg',
     ],//奖品图片数组
     imageName:[
-      '小龙虾1',
-      '小龙虾2',
-      '小龙虾3',
-      '小龙虾4',
-      '小龙虾5',
-      '小龙虾6',
-      '小龙虾7',
-      '小龙虾8',
+      '红烧茄子',
+      '红烧肉',
+      '黄焖鸡',
+      '兰州拉面',
+      '麻婆豆腐',
+      '奶香馒头',
+      '外卖',
+      '西安凉皮',
     ]
   },
 
@@ -126,15 +126,15 @@ Page({
     var _this = this;
     var indexSelect = 0
     var i = 0;
+    var randomNumber = 15 + Math.ceil(Math.random() * 8); ;
     var timer = setInterval(function () {
       indexSelect++;
       //这里我只是简单粗暴用y=30*x+200函数做的处理.可根据自己的需求改变转盘速度
-      i += 60;
-      if (i > 1000) {
+      i += 1;
+      if (i == randomNumber) {
         //去除循环
         clearInterval(timer)
         //获奖提示
-
         wx.showModal({
           title: '吃',
           content: '吃' + _this.data.imageName[indexSelect],
