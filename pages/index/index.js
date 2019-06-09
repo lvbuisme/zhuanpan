@@ -129,6 +129,7 @@ Page({
     var randomNumber = 15 + Math.ceil(Math.random() * 8); ;
     var timer = setInterval(function () {
       indexSelect++;
+      indexSelect = indexSelect % 8;
       //这里我只是简单粗暴用y=30*x+200函数做的处理.可根据自己的需求改变转盘速度
       i += 1;
       if (i == randomNumber) {
@@ -148,7 +149,7 @@ Page({
           }
         })
       }
-      indexSelect = indexSelect % 8;
+      
       _this.setData({
         indexSelect: indexSelect
       })
