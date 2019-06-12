@@ -32,7 +32,21 @@ Page({
       '西安凉皮',
     ]
   },
-
+  setDisabled: function (e) {
+    console.log("测试")
+    wx.request({
+      url: 'http://localhost:55314/WX/Login',
+      method: "Get",
+      success: function (res) {
+        //这里就是请求成功后，进行一些函数操作
+        console.log(res.data)
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+    
+  },
   onLoad: function () {
     var _this = this;
     //圆点设置
@@ -133,6 +147,7 @@ Page({
       //这里我只是简单粗暴用y=30*x+200函数做的处理.可根据自己的需求改变转盘速度
       i += 1;
       if (i == randomNumber) {
+        
         //去除循环
         clearInterval(timer)
         //获奖提示
@@ -146,6 +161,22 @@ Page({
                 isRunning: false
               })
             }
+          }
+        })
+        wx.request({
+          url: 'https://ilvbu.xyz:9999/test', //这里填写你的接口路径
+          header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml据了
+            'Content-Type': 'application/json'
+          },
+          method:"Get",
+          data: {//这里写你要请求的参数
+          },
+          success: function (res) {
+            //这里就是请求成功后，进行一些函数操作
+            console.log(res.data)
+          },
+          fail:function(err){
+            console.log(err)
           }
         })
       }

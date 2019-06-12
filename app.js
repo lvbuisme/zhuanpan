@@ -13,7 +13,25 @@ App({
     }else{
       //调用登录接口
       wx.login({
+     
         success: function () {
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 2000
+          })
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: 'http:localhost:55314/WX/Login',
+              method: "Get",
+              data: {
+                code: res.code
+              }
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo
@@ -22,6 +40,7 @@ App({
           })
         }
       })
+  
     }
   },
   globalData:{
