@@ -12,14 +12,14 @@ Page({
     indexSelect: 0,//被选中的奖品index
     isRunning: false,//是否正在抽奖
     imageAward: [
-      '../../images/红烧茄子.jpg',
-      '../../images/红烧肉.jpg',
-      '../../images/黄焖鸡.jpg',
-      '../../images/兰州拉面.jpg',
-      '../../images/麻婆豆腐.jpg',
-      '../../images/奶香馒头.jpg',
-      '../../images/外卖.jpg',
-      '../../images/西安凉皮.jpg',
+      '../../images/hsqz.jpg',
+      '../../images/hsr.jpg',
+      '../../images/hmj.jpg',
+      '../../images/lzlm.jpg',
+      '../../images/mpdf.jpg',
+      '../../images/nxmt.jpg',
+      '../../images/wm.jpg',
+      '../../images/xalp.jpg',
     ],//奖品图片数组
     imageName:[
       '红烧茄子',
@@ -35,7 +35,7 @@ Page({
   setDisabled: function (e) {
     console.log("测试")
     wx.request({
-      url: 'http://localhost:55314/WX/Login',
+      url: 'https://ilvbu.xyz:9011/WX/Login',
       method: "Get",
       success: function (res) {
         //这里就是请求成功后，进行一些函数操作
@@ -164,12 +164,13 @@ Page({
           }
         })
         wx.request({
-          url: 'https://ilvbu.xyz:9999/test', //这里填写你的接口路径
+          url: 'https://ilvbu.xyz:9011/AddFood', //这里填写你的接口路径
           header: { //这里写你借口返回的数据是什么类型，这里就体现了微信小程序的强大，直接给你解析数据，再也不用去寻找各种方法去解析json，xml据了
             'Content-Type': 'application/json'
           },
-          method:"Get",
+          method:"Post",
           data: {//这里写你要请求的参数
+            'foodName': _this.data.imageName[indexSelect]
           },
           success: function (res) {
             //这里就是请求成功后，进行一些函数操作

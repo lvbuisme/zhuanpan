@@ -23,7 +23,7 @@ App({
           if (res.code) {
             //发起网络请求
             wx.request({
-              url: 'http:localhost:55314/WX/Login',
+              url: 'https://ilvbu.xyz:9011/wx/Login',
               method: "Get",
               data: {
                 code: res.code
