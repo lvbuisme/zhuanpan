@@ -1,0 +1,15 @@
+<view class="container">
+           <picker class='time-picker' mode="multiSelector" bindchange="bindStartMultiPickerChange" bindtap='pickerTap'           bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">{{startDate}}
+           </picker>
+    <view class="container-in">
+      <view class=".news-item-container" wx:for="{{messageList}}">
+        <view class="new-item">
+          <view>
+            <text class="sendUser">{{item.sendUser}}</text>
+            <text class="messageTime">{{item.sendTime}}</text>
+          </view>
+          <text class="sendMessge">{{item.sendMessage}}</text>
+        </view>
+      </view>
+    </view>
+</view>
